@@ -1,0 +1,57 @@
+Retrieving crew attributes for training (effective date: 26-Mar-23) -> Retrieval Engine
+-> Crew attributes retrieved from file SQL database and saved in ../data/training_crew_attributes25-MAR-23.csv
+Retrieving crew assignments for training from 19-MAR-23 to 26-Mar-23-> Retrieval Engine
+-> Training crew assignments retrieved from file SQL database and saved in ../data/training_crew_assignments25-MAR-23.csv
+Prepped training data -> Data Prep Engine
+-> Training crew attributes data shape: (10065, 7)
+-> Training crew assignments data shape: (65813, 13)
+-> Number of unique crew members in training crew attrs data: 10065
+-> Number of unique crew members in training crew assmts data: 7953
+-> Data lies from: 2023-03-19 00:00:00 to 2023-03-25 23:59:00
+Split crew assignments data -> Data Prep Engine
+-> Pre Assignments data shape: (Checkpoint 1) (56622, 13)
+-> Post Assignments data shape: (Checkpoint 1) (9191, 13)
+ -> Number of unique crew members in pre assignment data: 7930
+ -> Number of unique crew members in training crew assmts data: 6428
+-> Pre data lies between 2023-03-19 00:00:00 to 2023-03-24 23:59:00
+-> Post data lies between 2023-03-25 00:00:00 to 2023-03-25 23:59:00
+Extracting features -> Data Prep Engine
+Data frame size (Df_model): (7930, 2)
+Data frame size (Merging with activity duration): (7930, 9)
+Data frame size (Merging with activity count): (7930, 16)
+Data frame size (Merging with crew attributes): (7930, 16)
+Label data -> Data Prep Engine
+Number of crew members: 6428
+Number of crew members that are supposed to be on duty: 4194
+Number of crew members predicted on: 4171
+Retrieving crew assignments for new date: 26-Mar-23 -> Retrieval Engine
+-> new crew assignments retrieved from file SQL database and saved in ../data/new_crew_assignments26-Mar-23.csv
+Prepped training data -> Data Prep Engine
+-> Training crew attributes data shape: (10065, 7)
+-> Training crew assignments data shape: (9145, 13)
+-> Number of unique crew members in training crew attrs data: 10065
+-> Number of unique crew members in training crew assmts data: 6310
+-> Data lies from: 2023-03-26 00:00:00 to 2023-03-26 23:59:00
+Prepping new data -> Data Prep Engine
+-> Pre Assignments data shape: (Checkpoint 1) (65813, 13)
+-> Post Assignments data shape: (Checkpoint 1) (9145, 13)
+-> Number of unique crew members in pre assignment data: 7953
+-> Number of unique crew members in training crew assmts data: 6310
+-> Pre data lies between 2023-03-19 00:00:00 to 2023-03-25 23:59:00
+-> Post data lies between 2023-03-26 00:00:00 to 2023-03-26 23:59:00
+Extracting features -> Data Prep Engine
+Data frame size (Df_model): (7953, 2)
+Data frame size (Merging with activity duration): (7953, 9)
+Data frame size (Merging with activity count): (7953, 16)
+Data frame size (Merging with crew attributes): (7953, 16)
+Label data -> Data Prep Engine
+Number of crew members: 6310
+Number of crew members that are supposed to be on duty: 4165
+Number of crew members predicted on: 4146
+Monitoring Engine ---------->
+There are 4146 crew members whos leave was predicted
+789 crew members had first activity as leave
+3357 crew members had first activity as non-leave
+608 non-leave crew members were predicted as leave
+52 leave crew members were predicted as non-leave
+Therefore, total percentage correctly predicted: 84.08104196816208
